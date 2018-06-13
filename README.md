@@ -23,7 +23,7 @@ composer install
  $cl =  new KhipuChaski\ApiClient($c);
  $notificationsApi = new KhipuChaski\Client\PushNotificationsApi($cl);
  try{ 
-    $response = $notificationsApi->msgPost("recipient1 ,    recipient2", "subject","Hello!!");
+    $response = $notificationsApi->msgPost("recipientId", "subject","Hello!!");
     print_r($response);
  } catch(Exception $e){
     echo $e->getMessage();
