@@ -1,23 +1,21 @@
 {
     "name": "khipu/khipu-chaski-api-client",
-    "version": "1.0.0",
+    "version": "1.0.6",
     "description": "",
     "keywords": [
-        "swagger",
+        "khipu",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "https://github.com/khipu/khipu-chaski-api-php-client",
+    "homepage": "https://github.com/khipu/khipu-api-php-client",
     "license": "Apache-2.0",
     "authors": [
         {
             "name": "khipu",
-            "homepage": "https://github.com/khipu/khipu-chaski-api-php-client"
+            "homepage": "https://github.com/khipu/khipu-api-php-client"
         }
     ],
-    "type": "library",
-    "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.3",
         "ext-curl": "*",

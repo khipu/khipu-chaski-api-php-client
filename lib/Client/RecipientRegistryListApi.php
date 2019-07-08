@@ -1,6 +1,6 @@
 <?php
 /**
- * PushNotificationsApi
+ * RecipientRegistryListApi
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \KhipuChaski\ApiException;
 use \KhipuChaski\ObjectSerializer;
 
 /**
- * PushNotificationsApi Class Doc Comment
+ * RecipientRegistryListApi Class Doc Comment
  *
  * @category Class
  * @package  KhipuChaski
@@ -47,7 +47,7 @@ use \KhipuChaski\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PushNotificationsApi
+class RecipientRegistryListApi
 {
 
     /**
@@ -82,7 +82,7 @@ class PushNotificationsApi
     /**
      * Set the API client
      * @param \KhipuChaski\ApiClient $apiClient set the API client
-     * @return PushNotificationsApi
+     * @return RecipientRegistryListApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -92,27 +92,22 @@ class PushNotificationsApi
   
     
     /**
-     * sendMessage
+     * getRecipients
      *
-     * Enviar un nuevo mensaje
+     * Lista de receptores de asociados a la aplicacion
      *
-     * @param \KhipuChaski\Model\Message $message Mensaje a enviar (requerido)
      * @param array $options Arreglo de par��metros opcionales (opcional)
-     * @return \KhipuChaski\Model\SuccessResponse
+     * @return string[]
      * @throws \KhipuChaski\ApiException on non-2xx response
      */
-    public function sendMessage($message, $options = null)
+    public function getRecipients($options = null)
     {
         
-        // verify the required parameter 'message' is set
-        if ($message === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $message when calling sendMessage');
-        }
   
         // parse inputs
-        $resourcePath = "/message";
+        $resourcePath = "/recipients";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
+        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -121,7 +116,7 @@ class PushNotificationsApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/x-www-form-urlencoded'));
   
         
 
@@ -149,8 +144,6 @@ class PushNotificationsApi
           
         }
 
-        // body params
-        $_tempBody = $message;
         
 
         if( $options != null ) {
@@ -201,19 +194,19 @@ class PushNotificationsApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, '\KhipuChaski\Model\SuccessResponse'
+                $headerParams, 'string[]'
             );
             
             if (!$response) {
                 return null;
             }
 
-            return $this->apiClient->getSerializer()->deserialize($response, '\KhipuChaski\Model\SuccessResponse', $httpHeader);
+            return $this->apiClient->getSerializer()->deserialize($response, 'string[]', $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KhipuChaski\Model\SuccessResponse', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string[]', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             case 403:
