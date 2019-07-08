@@ -27,7 +27,7 @@ composer install
     $message->setSubject("subject");
     $message->setBody("Hello world!");
     $message->setRecipientIdSet(array("recipientId"));
-    $response = $notificationsApi->sendMessage("recipientId", "subject","Hello!!");
+    $response = $notificationsApi->sendMessage($message);
     print_r($response);
  } catch(Exception $e){
     echo $e->getMessage();
