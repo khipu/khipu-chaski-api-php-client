@@ -17,7 +17,7 @@ composer install
  
  $c = new KhipuChaski\Configuration();
  $c->setSecret("tobechanged");
- $c->setReceiverId(1234);
+ $c->setReceiverId(123456789);
  $c->setDebug(true);
 
  $cl =  new KhipuChaski\ApiClient($c);
