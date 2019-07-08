@@ -12,23 +12,30 @@ composer install
 ### Basic usage
 ```php
 
-<?php
+<?php 
  require __DIR__ . '/vendor/autoload.php';
  
  $c = new KhipuChaski\Configuration();
- $c->setSecret('abc123');
+ $c->setSecret("tobechanged");
  $c->setReceiverId(1234);
  $c->setDebug(true);
 
  $cl =  new KhipuChaski\ApiClient($c);
  $notificationsApi = new KhipuChaski\Client\PushNotificationsApi($cl);
  try{ 
-    $response = $notificationsApi->msgPost("recipientId", "subject","Hello!!");
+    $message =  new KhipuChaski\Model\Message();
+    $message->setSubject("subject");
+    $message->setBody("Hello world!");
+    $message->setRecipientIdSet(array("recipientId"));
+    $response = $notificationsApi->sendMessage("recipientId", "subject","Hello!!");
     print_r($response);
  } catch(Exception $e){
     echo $e->getMessage();
  }
 
+
 ?>
+
+
 
 ```
