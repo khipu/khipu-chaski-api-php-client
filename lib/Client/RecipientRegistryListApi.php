@@ -64,7 +64,7 @@ class RecipientRegistryListApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://khipu.com/chaski/api/1.0');
+            $apiClient->getConfig()->setHost('https://chaski.khipu.com/api/1.0');
         }
   
         $this->apiClient = $apiClient;

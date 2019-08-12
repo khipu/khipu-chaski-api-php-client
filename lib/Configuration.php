@@ -89,7 +89,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://khipu.com/chaski/api/1.0';
+    protected $host = 'https://chaski.khipu.com/api/1.0';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout
@@ -103,7 +103,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = "khipu-api-php-client/1.0.9";
+    protected $userAgent = "khipu-api-php-client/1.1.0";
 
     /**
      * Debug switch (default set to false)
@@ -346,7 +346,7 @@ class Configuration
 
     public function setPlatform($name, $version)
     {
-        $this->userAgent = "khipu-api-php-client/1.0.9|".$name."/".$version;
+        $this->userAgent = "khipu-api-php-client/1.1.0|".$name."/".$version;
     }
 
     /**
@@ -514,8 +514,8 @@ class Configuration
         $report  = "PHP SDK (KhipuChaski) Debug Report:\n";
         $report .= "    OS: ".php_uname()."\n";
         $report .= "    PHP Version: ".phpversion()."\n";
-        $report .= "    Swagger Spec Version: 1.0.9\n";
-        $report .= "    SDK Package Version: 1.0.9\n";
+        $report .= "    Swagger Spec Version: 1.1.0\n";
+        $report .= "    SDK Package Version: 1.1.0\n";
         $report .= "    Temp Folder Path: ".self::getDefaultConfiguration()->getTempFolderPath()."\n";
 
         return $report;
